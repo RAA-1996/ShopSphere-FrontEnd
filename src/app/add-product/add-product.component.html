@@ -1,0 +1,70 @@
+<!-- <p>add-product works!</p> -->
+
+<div class="form-container">
+    <form class="row g-3" style="margin: 100px" (ngSubmit)="onAddProduct()">
+      <div class="col-md-10">
+        <label class="form-label">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          name="title"
+          [(ngModel)]="title"
+          required
+        />
+      </div>
+      <div class="col-md-2">
+        <label class="form-label">Price</label>
+        <input
+          type="text"
+          class="form-control"
+          name="price"
+          [ngModel]="price == 0 ? '' : price"
+          required
+          (input) = "priceChange($event)"
+        />
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          name="description"
+          [(ngModel)]="description"
+          required
+        />
+      </div>
+      <!-- <div class="col-md-6">
+        <label class="form-label">Category</label>
+        <input
+          type="text"
+          class="form-control"
+          name="category"
+          [(ngModel)]="category"
+          required
+        />
+      </div> -->
+      <div class="col-md-4">
+        <label class="form-label">Category</label>
+        <select name="category" class="form-control" [(ngModel)]="category" required>
+            <option *ngFor="let c of categoryList">{{c}}</option>
+            <!-- <option value="">Electronics</option>
+            <option value="">Jewelery</option>
+            <option value="">Men's Clothing</option>
+            <option value="">Women's Clothing</option> -->
+        </select>
+      </div>
+      <div class="col-md-8">
+        <label class="form-label">Image</label>
+        <input
+          type="text"
+          class="form-control"
+          name="image"
+          [(ngModel)]="image"
+          required
+        />
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Add Product</button>
+      </div>
+    </form>
+  </div>

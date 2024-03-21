@@ -1,0 +1,255 @@
+<!-- <p>admin-dashboard works!</p> -->
+
+<!-- <p class="d-inline-flex gap-1" style="margin-left: 100px">
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#listUsers"
+    aria-expanded="false"
+    aria-controls="listUsers"
+  >
+    Users
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#listProducts"
+    aria-expanded="false"
+    aria-controls="listProducts"
+  >
+    Products
+  </button>
+  <button
+    class="btn btn-primary"
+    type="button"
+    data-bs-toggle="collapse"
+    data-bs-target="#listDiscounts"
+    aria-expanded="false"
+    aria-controls="listDiscounts"
+  >
+    Discounts
+  </button>
+</p> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 50px">
+  <div class="col-md-4">
+    <div class="card">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#listUsers"
+        aria-expanded="false"
+        aria-controls="listUsers"
+      >
+        Users
+      </button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#listProducts"
+        aria-expanded="false"
+        aria-controls="listProducts"
+      >
+        Products
+      </button>
+    </div>
+  </div>
+  <div class="col-md-4">
+    <div class="card">
+      <button
+        class="btn btn-primary"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#listDiscounts"
+        aria-expanded="false"
+        aria-controls="listDiscounts"
+      >
+        Discounts
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="collapse multi-collapse" id="listUsers">
+    <div class="card card-body">
+      <!-- LIST ALL USERS! -->
+      <div *ngIf="{usersList}">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">userId</th>
+              <th scope="col">username</th>
+              <th scope="col">email</th>
+              <!-- <th scope="col">password</th> -->
+              <th scope="col">fname</th>
+              <th scope="col">lname</th>
+              <th scope="col">city</th>
+              <th scope="col">street</th>
+              <th scope="col">houseNumber</th>
+              <th scope="col">zipcode</th>
+              <th scope="col">mobile</th>
+              <th scope="col">role</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let user of usersList; let i = index">
+            <tr>
+              <td>{{ user.userId }}</td>
+              <td>{{ user.username }}</td>
+              <td>{{ user.email }}</td>
+              <!-- <td>{{user.password}}</td> -->
+              <td>{{ user.name.fname }}</td>
+              <td>{{ user.name.lname }}</td>
+              <td>{{ user.address.city }}</td>
+              <td>{{ user.address.street }}</td>
+              <td>{{ user.address.houseNumber }}</td>
+              <td>{{ user.address.zipcode }}</td>
+              <td>{{ user.mobile }}</td>
+              <td>{{ user.role }}</td>
+              <td>
+                <button
+                  class="btn btn-outline-success"
+                  routerLink="/admin/updateUser/{{ user.userId }}"
+                >
+                  Update
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger"
+                  (click)="onDeleteUser(user.userId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="collapse multi-collapse" id="listProducts">
+    <div class="card card-body">
+      <!-- LIST ALL PRODUCTS! -->
+      <div *ngIf="{productsList}">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">productId</th>
+              <th scope="col">title</th>
+              <th scope="col">price</th>
+              <th scope="col">description</th>
+              <th scope="col">category</th>
+              <th scope="col">image</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let product of productsList; let i = index">
+            <tr>
+              <td>{{ product.productId }}</td>
+              <td>{{ product.title }}</td>
+              <td>${{ product.price }}</td>
+              <td>{{ product.description }}</td>
+              <td>{{ product.category }}</td>
+              <!-- <td>{{ product.image }}</td> -->
+              <td>
+                <img
+                  [src]="product?.image"
+                  height="250px"
+                  class="card-img-top"
+                  alt="..."
+                />
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-success"
+                  routerLink="/admin/updateProduct/{{ product.productId }}"
+                >
+                  Update
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger"
+                  (click)="onDeleteProduct(product.productId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button" routerLink="addProduct">
+          Add Product
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="collapse multi-collapse" id="listDiscounts">
+    <div class="card card-body">
+      <!-- LIST ALL DISCOUNTS! -->
+      <div *ngIf="{discountsList}">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">discountId</th>
+              <th scope="col">discountName</th>
+              <th scope="col">discountCode</th>
+              <th scope="col">reductionPercent</th>
+              <th scope="col"></th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody *ngFor="let discount of discountsList; let i = index">
+            <tr>
+              <td>{{ discount.discountId }}</td>
+              <td>{{ discount.discountName }}</td>
+              <td>{{ discount.discountCode }}</td>
+              <td>{{ discount.reductionPercent }}</td>
+              <td>
+                <button
+                  class="btn btn-outline-success"
+                  routerLink="/admin/updateDiscount/{{ discount.discountId }}"
+                >
+                  Update
+                </button>
+              </td>
+              <td>
+                <button
+                  class="btn btn-outline-danger"
+                  (click)="onDeleteDiscount(discount.discountId)"
+                >
+                  Delete
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="d-grid gap-2">
+        <button class="btn btn-primary" type="button" routerLink="addDiscount">
+          Add Discount
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

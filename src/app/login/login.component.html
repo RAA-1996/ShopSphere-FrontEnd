@@ -1,0 +1,29 @@
+<!-- <p>login works!</p> -->
+
+<div class="form-container">
+  <form class="row g-3" style="margin: 100px" (ngSubmit)="onLogin()">
+    <div class="col-md-6">
+      <label class="form-label">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Login</button>
+    </div>
+  </form>
+</div>

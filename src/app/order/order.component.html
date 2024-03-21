@@ -1,0 +1,119 @@
+<!-- <p>order works!</p> -->
+
+<!-- <div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 50px">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="card card-body">
+          <div>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col">userId</th>
+                  <th scope="col">username</th>
+                  <th scope="col">email</th>
+                  <th scope="col">first name</th>
+                  <th scope="col">last name</th>
+                  <th scope="col">city</th>
+                  <th scope="col">street</th>
+                  <th scope="col">houseNumber</th>
+                  <th scope="col">zipcode</th>
+                  <th scope="col">mobile</th>
+                  <th scope="col">role</th>
+                  <th scope="col">productList</th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let order of orderList; let i = index">
+                <tr>
+                  <td></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 50px">
+  <div class="col-md-12">
+    <div class="row">
+      <div class="card card-body">
+        <div>
+          <div>
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col">User Information</div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+                    <div class="col">
+                      <div class="row">
+                        First Name: {{ orderEntityList[0].name.fname }}
+                      </div>
+                      <div class="row">
+                        Last Name: {{ orderEntityList[0].name.lname }}
+                      </div>
+                      <div class="row">
+                        Username: {{ orderEntityList[0].username }}
+                      </div>
+                      <div class="row">
+                        Email: {{ orderEntityList[0].email }}
+                      </div>
+                      <div class="row">
+                        Mobile: {{ orderEntityList[0].mobile }}
+                      </div>
+                      <div class="row">
+                        City: {{ orderEntityList[0].address.city }}
+                      </div>
+                      <div class="row">
+                        Street: {{ orderEntityList[0].address.street }}
+                      </div>
+                      <div class="row">
+                        House Number:
+                        {{ orderEntityList[0].address.houseNumber }}
+                      </div>
+                      <div class="row">
+                        Zip: {{ orderEntityList[0].address.zipcode }}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col">
+                <div class="card">
+                  <div class="card-header">
+                    <div class="row">
+                      <div class="col">Group Count</div>
+                      <div class="col">Title</div>
+                      <div class="col">Image</div>
+                      <div class="col">Price</div>
+                    </div>
+                  </div>
+                  <div class="card-body">
+
+                    <div *ngFor='let order of orderEntityList'>
+                      <div class="row" *ngFor='let p of order.productList; let i = index'> 
+                        <div class="col ms-2">{{ i + 1 }}</div>
+                        <div class="col ms-2">{{ p.title }}</div>
+                        <div class="col ms-2"><img [src]="p.image" alt="" style="width: 100px; margin: 5px;"></div>
+                        <div class="col ms-2">${{ p.price }}</div>
+
+                        <hr />
+                      </div>
+                    </div>
+             
+                   
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<!-- <p>register works!</p> -->
+
+<div class="form-container">
+  <form class="row g-3" style="margin: 100px" (ngSubmit)="onRegister()">
+    <div class="col-md-6">
+      <label class="form-label">First Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="fname"
+        [(ngModel)]="fname"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Last Name</label>
+      <input
+        type="text"
+        class="form-control"
+        name="lname"
+        [(ngModel)]="lname"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Username</label>
+      <input
+        type="text"
+        class="form-control"
+        name="username"
+        [(ngModel)]="username"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Password</label>
+      <input
+        type="text"
+        class="form-control"
+        name="password"
+        [(ngModel)]="password"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Email</label>
+      <input
+        type="text"
+        class="form-control"
+        name="email"
+        [(ngModel)]="email"
+        required
+      />
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Mobile Number</label>
+      <input
+        type="text"
+        class="form-control"
+        name="mobile"
+        [(ngModel)]="mobile"
+        required
+      />
+    </div>
+    <div class="col-8">
+      <label class="form-label">Street</label>
+      <input
+        type="text"
+        class="form-control"
+        name="street"
+        [(ngModel)]="street"
+        required
+      />
+    </div>
+    <div class="col-4">
+      <label class="form-label">House Number</label>
+      <input
+        type="text"
+        class="form-control"
+        name="houseNumber"
+        [(ngModel)]="houseNumber"
+        required
+      />
+    </div>
+    <div class="col-md-8">
+      <label class="form-label">City</label>
+      <input
+        type="text"
+        class="form-control"
+        name="city"
+        [(ngModel)]="city"
+        required
+      />
+    </div>
+    <!-- <div class="col-md-4">
+        <label class="form-label">State</label>
+        <input type="text" class="form-control" id="inputState" />
+      </div> -->
+    <div class="col-md-4">
+      <label class="form-label">Zip</label>
+      <input
+        type="text"
+        class="form-control"
+        name="zipcode"
+        [(ngModel)]="zipcode"
+        required
+      />
+    </div>
+    <div class="col-md-12">
+      <label class="form-label">Role</label>
+      <select class="form-select" name="role" [(ngModel)]="role" required>
+        <option value="USER">USER</option>
+        <option value="ADMIN">ADMIN</option>
+      </select>
+    </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Register</button>
+    </div>
+  </form>
+</div>

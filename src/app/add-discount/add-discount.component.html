@@ -1,0 +1,40 @@
+<!-- <p>add-discount works!</p> -->
+
+<div class="form-container">
+    <form class="row g-3" style="margin: 100px" (ngSubmit)="onAddDiscount()">
+      <div class="col-md-8">
+        <label class="form-label">Discount Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="discountName"
+          [(ngModel)]="discountName"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Discount Code</label>
+        <input
+          type="text"
+          class="form-control"
+          name="discountCode"
+          [(ngModel)]="discountCode"
+          required
+        />
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Reduction Percentage (as a decimal)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="reductionPercent"
+          [ngModel]="reductionPercent == 0 ? '' : reductionPercent"
+          required
+          (input) = "percentChange($event)"
+        />
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Add Discount</button>
+      </div>
+    </form>
+  </div>

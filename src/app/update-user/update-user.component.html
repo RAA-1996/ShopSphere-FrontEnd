@@ -1,0 +1,120 @@
+<!-- <p>update-user works!</p> -->
+
+<div class="form-container">
+    <form class="row g-3" style="margin: 100px" (ngSubmit)="onUpdateUser()">
+      <div class="col-md-6">
+        <label class="form-label">First Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="fname"
+          [(ngModel)]="userEntity.name.fname"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Last Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="lname"
+          [(ngModel)]="userEntity.name.lname"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="userEntity.username"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Password (MUST UPDATE TO REAL PASSWORD)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="password"
+          [(ngModel)]="userEntity.password"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Email</label>
+        <input
+          type="text"
+          class="form-control"
+          name="email"
+          [(ngModel)]="userEntity.email"
+          required
+        />
+      </div>
+      <div class="col-md-6">
+        <label class="form-label">Mobile Number</label>
+        <input
+          type="text"
+          class="form-control"
+          name="mobile"
+          [(ngModel)]="userEntity.mobile"
+          required
+        />
+      </div>
+      <div class="col-8">
+        <label class="form-label">Street</label>
+        <input
+          type="text"
+          class="form-control"
+          name="street"
+          [(ngModel)]="userEntity.address.street"
+          required
+        />
+      </div>
+      <div class="col-4">
+        <label class="form-label">House Number</label>
+        <input
+          type="text"
+          class="form-control"
+          name="houseNumber"
+          [(ngModel)]="userEntity.address.houseNumber"
+          required
+        />
+      </div>
+      <div class="col-md-8">
+        <label class="form-label">City</label>
+        <input
+          type="text"
+          class="form-control"
+          name="city"
+          [(ngModel)]="userEntity.address.city"
+          required
+        />
+      </div>
+      <!-- <div class="col-md-4">
+          <label class="form-label">State</label>
+          <input type="text" class="form-control" id="inputState" />
+        </div> -->
+      <div class="col-md-4">
+        <label class="form-label">Zip</label>
+        <input
+          type="text"
+          class="form-control"
+          name="zipcode"
+          [(ngModel)]="userEntity.address.zipcode"
+          required
+        />
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Role</label>
+        <select class="form-select" name="role" [(ngModel)]="userEntity.role" required>
+          <option value="USER">USER</option>
+          <option value="ADMIN">ADMIN</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary" [disabled]="userEntity.password===''" >Update User</button>
+      </div>
+    </form>
+  </div>

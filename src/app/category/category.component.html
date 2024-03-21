@@ -1,0 +1,56 @@
+<!-- <p>category works!</p> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 50px;">
+  <a (click)="changeCategory('electronics')">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Electronics
+          </h5>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a (click)="changeCategory('jewelery')">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Jewelery
+          </h5>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a (click)="changeCategory('men\'s clothing')">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Men's Clothing
+          </h5>
+        </div>
+      </div>
+    </div>
+  </a>
+  <a (click)="changeCategory('women\'s clothing')">
+    <div class="col">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">
+            Women's Clothing
+          </h5>
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+
+<!-- <h1>{{ category }}</h1> -->
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <app-category-details
+      *ngFor="let data of product; let i = index"
+      [productEntity]="data"
+    ></app-category-details>
+  </div>

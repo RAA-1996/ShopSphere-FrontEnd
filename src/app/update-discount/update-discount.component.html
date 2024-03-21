@@ -1,0 +1,40 @@
+<!-- <p>update-discount works!</p> -->
+
+<div class="form-container">
+    <form class="row g-3" style="margin: 100px" (ngSubmit)="onUpdateDiscount()">
+      <div class="col-md-8">
+        <label class="form-label">Discount Name</label>
+        <input
+          type="text"
+          class="form-control"
+          name="discountName"
+          [(ngModel)]="discountEntity.discountName"
+          required
+        />
+      </div>
+      <div class="col-md-4">
+        <label class="form-label">Discount Code</label>
+        <input
+          type="text"
+          class="form-control"
+          name="discountCode"
+          [(ngModel)]="discountEntity.discountCode"
+          required
+        />
+      </div>
+      <div class="col-md-12">
+        <label class="form-label">Reduction Percentage (as a decimal)</label>
+        <input
+          type="text"
+          class="form-control"
+          name="reductionPercent"
+          [ngModel]="discountEntity.reductionPercent == 0 ? '' : discountEntity.reductionPercent"
+          required
+          (input) = "percentChange($event)"
+        />
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Update Discount</button>
+      </div>
+    </form>
+  </div>

@@ -1,0 +1,47 @@
+<!-- <p>wishlist works!</p> -->
+
+<div class="row row-cols-1 row-cols-md-4 g-4" style="margin: 50px">
+    <div class="col-md-12">
+      <div class="row">
+        <div class="card card-body">
+          <div class="table-responsive">
+            <table class="table table-md">
+              <thead>
+                <tr>
+                  <th scope="col">Wish Number</th>
+                  <!-- <th scope="col">userId</th> -->
+                  <th scope="col">image</th>
+                  <th scope="col">title</th>
+                  <th scope="col">price</th>
+                  <th scope="col"></th>
+                </tr>
+              </thead>
+              <tbody *ngFor="let wish of productList; let i = index">
+                <tr>
+                  <td>{{ i + 1 }}</td>
+                  <td>
+                    <img
+                      src="{{ wish.image }}"
+                      alt=""
+                      class="img-fluid"
+                      style="max-width: 100px"
+                    />
+                  </td>
+                  <td>{{ wish.title }}</td>
+                  <td>${{ wish.price }}</td>
+                  <td>
+                    <button
+                      class="btn btn-outline-danger"
+                      (click)="onRemoveFromWishlist(wish.wishlistId)"
+                    >
+                      Remove
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
